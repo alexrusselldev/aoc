@@ -1,10 +1,20 @@
 module.exports = {
-  types: ["solution"],
+  types: ["challenge", "input", "solution"],
   devmoji: [
+    {
+      code: "challenge",
+      emoji: "page_facing_up",
+      description: "add a challenge description",
+    },
+    {
+      code: "input",
+      emoji: "memo",
+      description: "add an input for a challenge",
+    },
     {
       code: "solution",
       emoji: "white_check_mark",
-      description: "this commit adds a solution for a challenge",
+      description: "add a solution for a challenge",
     },
   ],
 };
