@@ -10,7 +10,7 @@ while (true) {
 
   const hash = crypto.createHash("md5").update(currentInput).digest("hex");
 
-  if (hash.substring(-1, 5) == "00000") {
+  if (hash.substring(0, 5) == "00000") {
     break;
   }
 
