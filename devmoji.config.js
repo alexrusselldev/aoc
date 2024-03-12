@@ -1,5 +1,5 @@
 module.exports = {
-  types: ["challenge", "input", "solution"],
+  types: ["challenge", "input", "solution", "wip"],
   devmoji: [
     {
       code: "challenge",
@@ -15,6 +15,11 @@ module.exports = {
       code: "solution",
       emoji: "white_check_mark",
       description: "add a solution for a challenge",
+    },
+    {
+      code: "wip",
+      emoji: "construction",
+      description: "add a work in progress solution for a challenge",
     },
   ],
 };
