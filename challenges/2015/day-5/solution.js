@@ -2,26 +2,29 @@ const fs = require("fs");
 
 const input = fs.readFileSync(`${__dirname}/input`).toString();
 
-const doubleCharRegex = /([a-z])\1{1}/g;
-
-const vowelRegex = /([aeiou]){1}/g;
-
-const forbiddenStringRegex = /(ab)+|(cd)+|(pq)+|(xy)+/g;
+const forbiddenStrings = ["ab", "cd", "pq", "xy"];
+const vowels = ["a", "e", "i", "o", "u"];
 
 const lines = input.split("\n");
 
 const niceLines = lines.filter((line) => {
-  const forbiddenStrings = forbiddenStringRegex.test(line);
-  if (forbiddenStrings) return false;
+  for (const string of forbiddenStrings) {
+    if (line.includes(string)) return false;
+  }
 
-  const vowels = line.match(vowelRegex);
-  if (vowels == null || vowels.length < 3) return false;
+  const vowelsInLine = line.split("").filter((char) => {
+    return vowels.includes(char);
+  });
 
-  const doubleChars = doubleCharRegex.test(line);
-  console.log(line, doubleChars);
-  if (!doubleChars) return false;
+  if (vowelsInLine.length < 3) return false;
 
-  return true;
+  for (const [index, char] of line.split("").entries()) {
+    if (char == line[index + 1]) {
+      return true;
+    }
+  }
+
+  return false;
 });
 
 console.log(niceLines.length);
